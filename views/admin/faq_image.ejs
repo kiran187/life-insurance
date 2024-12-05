@@ -1,0 +1,29 @@
+<%- include("navbar.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Image Upload Form</title>
+    
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Upload FAQ Image</h2>
+    <form action="/admin/upload_faq_image" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <input type="hidden" name="fqe_img_id" value="<%-old_data.faq_img_id%>">
+            <label for="faq_img" class="form-label">FAQ Image</label>
+            <img src="/uploads/<%-old_data.faq_img%>" width="100px" class="mb-3">
+            <input type="file" class="form-control" id="faq_img" name="faq_img" accept="image/*" >
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS (Optional, for interactive components) -->
+
+</body>
+</html>
+
+<%- include("footer.ejs") %>

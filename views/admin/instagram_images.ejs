@@ -1,0 +1,65 @@
+<%-include("navbar.ejs")%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Images Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Upload Instagram Image</h2>
+    <form action="/admin/insta_image" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="insta_image" class="form-label">Instagram Image</label>
+            <input type="file" class="form-control" id="insta_image" name="insta_image" accept="image/*" required>
+        </div>
+        <div class="mb-3">
+            <label for="insta_link" class="form-label">Instagram Post Link</label>
+            <input type="url" class="form-control" id="insta_link" name="insta_link" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS (Optional, for interactive components) -->
+
+</body>
+</html>
+
+<table border="2" width="100%"  class="mt-5 table table-bordered">
+    <tr>
+        <th>action</th>
+        <th>sr.no</th>
+        <th>insta_image</th>
+        <th>insta_link</th>
+    </tr>
+    <% sr=1; for(i of data) {%> 
+        <tr>
+            <td>
+                <a href="/admin/instagram_img_delete/<%-i.insta_img_id%>" onclick="return confirmDelete()">
+                    <button class="text-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </a>
+                <a href="/admin/instagram_img_update/<%-i.insta_img_id%>">
+                    <button class="text-warning">
+                        <i class="fa-solid fa-pencil"></i>
+                    </button>
+                </a>
+            </td>
+            <td><%-sr++%></td>
+            <td><img src="/uploads/<%-i.insta_image%>" width="100px"></td>
+            <td><%-i.insta_link%></td>
+        </tr>
+    <% } %>
+</table>
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this item?');
+    }
+</script>
+
+<%-include("footer.ejs")%>

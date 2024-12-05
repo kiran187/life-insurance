@@ -1,0 +1,30 @@
+<%- include("navbar.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Form</title>
+    
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>FAQ Form</h2>
+        <form action="/admin/faq_question_update" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="hidden" name="faq_quition_id" value="<%-old_data.faq_id%>">
+                <label for="faq_question">FAQ Question</label>
+                <input type="text" value="<%-old_data.faq_question%>" class="form-control" id="faq_question" name="faq_question" placeholder="Enter FAQ Question" >
+            </div>
+            <div class="form-group">
+                <label for="faq_answer">FAQ Answer</label>
+                <textarea class="form-control" id="faq_answer" name="faq_answer" rows="4"  ><%-old_data.faq_answer%></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-4">Submit</button>
+        </form>
+    </div>
+
+    
+</body>
+</html>
+<%- include("footer.ejs") %>

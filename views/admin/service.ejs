@@ -1,0 +1,61 @@
+
+<%- include("navbar.ejs")%>
+<header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+</header>
+<div class="container mt-5">
+    <h2 class="pb-4">Manage Service</h2>
+    <form action="/admin/add-service" method="POST" enctype="multipart/form-data" class="p-4 border rounded bg-light">
+        <div class="mb-3">
+            <label for="service_title" class="form-label">Service Title</label>
+            <input type="text" class="form-control p-2" id="service_title" name="service_title" maxlength="255" required>
+        </div>
+        <div class="mb-3">
+            <label for="service_details" class="form-label">Service Details</label>
+            <textarea class="form-control p-2" id="service_details" name="service_details" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="service_image" class="form-label">Service Image</label>
+            <input class="form-control p-2" type="file" id="service_image" name="service_image" accept="image/*" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<table width="100%" border="1" class="table">
+    <tr>
+        <th>action</th>
+        <th>sr.no</th>
+        <th>Service Title</th>
+        <th>Service Details</th>
+        <th>Service Image</th>
+    </tr>
+    <% sr=1; for(i of data){%>
+        <tr>
+            <td>
+                <a href="/admin/deletes/<%-i.service_id%>" onclick="return confirmDelete()">
+                    <button class="text-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </a>
+                <a href="/admin/edit/<%-i.service_id%>">
+                    <button class="text-warning">
+                        <i class="fa-solid fa-pencil"></i>
+                    </button>
+                </a>
+           
+            </td>
+            <td><%-sr++%></td>
+            
+            <td><%-i.service_title%></td>
+            <td style="width: 200px;"><%-i.service_details%></td>
+            <td><img src="/uploads/<%-i.service_image%>" width="100px"></td>
+        </tr>
+    <% } %>
+</table>
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this item?');
+    }
+</script>
+<%- include("footer.ejs")%>

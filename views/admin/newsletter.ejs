@@ -1,0 +1,34 @@
+<%- include("navbar.ejs") %>
+<body>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="/admin/newsletter_form" method="post">
+                    <div class="mb-3">
+                        <label for="customer_email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="customer_email" name="customer_email" placeholder="Enter your email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div></body>
+
+    <table width="100%" border="1" style="text-align: center;" class="table table-bordered mt-4">
+        <tr>
+            <th>action</th>
+            <th>sr.no</th>
+            <th>customer_email</th>
+        </tr>
+        <% sr=1; for(i of data) {%> 
+        <tr>
+            <td>
+                <a href="/admin/newsletter_delete/<%-i.newsletter_id%>">delete</a>
+                <a href="/admin/newsletter_update/<%-i.newsletter_id%>">update</a>
+            </td>
+            <td><%-sr++%></td>
+            <td><%-i.customer_email%></td>
+        </tr>
+        <% } %>
+    </table>
+<%- include("footer.ejs") %>

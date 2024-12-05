@@ -1,0 +1,31 @@
+<%- include("navbar.ejs")%>
+<div class="container mt-5">
+    <h1>Create a New Blog Post</h1>
+    <form action="/admin/edit_from" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <input type="hidden" name="blog_id" value="<%-old_data.blog_id%>">
+            <label for="blog_title" class="form-label">Blog Title:</label>
+            <input type="text" class="form-control" id="blog_title" value="<%-old_data.blog_title%>" name="blog_title" required>
+        </div>
+        <div class="mb-3">
+            <label for="blog_details" class="form-label">Blog Details:</label>
+            <textarea class="form-control" id="blog_details" name="blog_details" rows="5" required><%-old_data.blog_details%></textarea>
+        </div>
+        <div class="mb-2">
+            <label for="blog_image" class="form-label">Blog Image:</label>
+            <input class="form-control" type="file" id="blog_image" name="blog_image">
+        </div>
+        <div class="mb-1">
+            <img src="/uploads/<%=old_data.blog_image%>" width="100px">
+        </div>
+        <div class="mb-3">
+            <label for="blog_post_by" class="form-label">Blog date:</label>
+            <input type="date" class="form-control" id="blog_post_by" value="<%-old_data.blog_date%>" name="blog_date" required>
+        </div>
+        <div class="mb-3">
+            <label for="blog_post_by" class="form-label">Posted By:</label>
+            <input type="text" class="form-control" id="blog_post_by" value="<%-old_data.blog_post_by%>" name="blog_post_by" required>
+        </div>
+        <button class="btn btn-primary" >Create Blog Post</button>
+    </form>
+<%- include("footer.ejs")%>

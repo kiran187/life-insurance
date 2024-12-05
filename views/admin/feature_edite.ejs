@@ -1,0 +1,62 @@
+<%-include ("navbar.ejs")%>
+<div class="container mt-5">
+    <form action="/admin/feature_data" method="post" enctype="multipart/form-data">
+        <!-- Feature Icon Image -->
+        <div class="mb-2">
+            <input type="hidden" name="feature_id" value="<%-feture_data.feature_id%>">
+            <label for="featureIconImage" class="form-label">Feature Icon Image :</label> <img src="/uploads/<%-feture_data.feature_icon_image%>" width="100px">
+            <input type="file" class="form-control" id="featureIconImage" name="feature_icon_image">
+        </div>
+        <div class="mb-1">
+           
+        </div>
+
+        <!-- Feature Label -->
+        <div class="mb-3">
+            <label for="featureLabel" class="form-label">Feature Label</label>
+            <input type="text" value="<%-feture_data.feature_label%>" class="form-control" id="featureLabel" name="feature_label" placeholder="Enter feature label">
+        </div>
+
+        <!-- Feature Details -->
+        <div class="mb-3">
+            <label for="featureDetails" class="form-label">Feature Details</label>
+            <textarea class="form-control" id="featureDetails" name="feature_details" rows="4" placeholder="Enter feature details"><%-feture_data.feature_details%></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<%-include ("footer.ejs")%>
+
+<!--
+
+
+
+
+
+
+
+
+
+
+
+
+faq
+	-> faq_question
+	-> faq_answer
+
+
+    
+newsletter
+	-> customer_email
+
+
+
+
+
+
+
+
+
+

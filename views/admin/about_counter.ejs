@@ -1,0 +1,69 @@
+<%- include("navbar.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Counter Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2> Counter Form</h2>
+    <input type="hidden" value="<%-old_data.counter_id%>">
+    <form action="/admin/about_counter" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="about_counter_image">About Counter Image:</label>
+                    <input type="file" class="form-control" id="about_counter_image" name="about_counter_image">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+<img src="/uploads/<%-old_data.about_counter_image%>" width="100px">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="total_insurance_policies">Total Insurance Policies:</label>
+                    <input type="number" class="form-control" id="total_insurance_policies" name="total_insurance_policies" value="<%-old_data.total_insurance_policies%>" required>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="total_awards_won">Total Awards Won:</label>
+                    <input type="number" class="form-control" id="total_awards_won" name="total_awards_won" value="<%-old_data.total_awards_won%>" required>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="total_skilled_agent">Total Skilled Agents:</label>
+                    <input type="number" class="form-control" id="total_skilled_agent" name="total_skilled_agent" value="<%-old_data.total_skilled_agent%>" required>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="total_team_members">Total Team Members:</label>
+                    <input type="number" class="form-control" id="total_team_members" name="total_team_members" value="<%-old_data.total_team_members%>" required>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+<%- include("footer.ejs") %>

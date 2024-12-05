@@ -1,0 +1,47 @@
+<%- include("navbar.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Submit Your Testimonial</h2>
+        <form action="/admin/testimonial_data" method="POST" enctype="multipart/form-data" entype="multiple">
+            <div class="form-group">
+                <input type="hidden" name="testimonial_id" value="<%-old_data.testimonial_id%>">
+                <label for="customer_image" class="ml-2">Customer Image:</label>
+                <img src="/uploads/<%-old_data.customer_image%>" width="100px" class="mb-2">
+                <input type="file" class="form-control" id="customer_image" name="customer_image">
+            </div>
+            <div class="form-group">
+                <label for="customer_name">Customer Name</label>
+                <input type="text" value="<%-old_data.customer_name%>"  class="form-control" id="customer_name" name="customer_name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="customer_position">Customer Position</label>
+                <input type="text" value="<%-old_data.customer_position%>" class="form-control" id="customer_position" name="customer_position" placeholder="Enter your position" required>
+            </div>
+            <div class="form-group">
+                <label for="customer_review_rating">Review Rating</label>
+                <select class="form-control" id="customer_review_rating" name="customer_review_rating" required>
+                    <option value=""><%-old_data.customer_review_rating%></option>
+                    <option value="1">1 - Poor</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="3">3 - Good</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="5">5 - Excellent</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="customer_review_details">Review Details</label>
+                <textarea class="form-control" id="customer_review_details" name="customer_review_details" 
+                rows="5" placeholder="Write your review here" required><%-old_data.customer_review_details%></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+<%- include("footer.ejs") %>

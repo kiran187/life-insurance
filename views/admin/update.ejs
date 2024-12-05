@@ -1,0 +1,30 @@
+<%-include("navbar.ejs")%>
+<form action="/admin/update_slider" method="POST" enctype="multipart/form-data" class="p-4 border rounded bg-light">
+    <div class="container mt-5">
+        <h2 class="pb-4">Add Slider</h2>
+       <input type="hidden" name="slider_heading" value="<%-old_data.slider_id%>">
+            <div class="mb-3">
+                
+                <label for="slider_heading" class="form-label">Slider Heading</label>
+                <input type="text" class="form-control p-2" value="<%-old_data.slider_heading%>" id="slider_heading" name="slider_heading" maxlength="255" required>
+            </div>
+            <div class="mb-3">
+                <label for="slider_content" class="form-label">Slider Content</label>
+                <textarea class="form-control p-2" id="slider_content" name="slider_content" rows="3" required><%-old_data.slider_content%></textarea>
+            </div>
+            <div class="mb-3 col-4">
+                <label for="slider_image" class="form-label">Slider Image</label>
+                <input class="form-control p-2" type="file" id="slider_image" name="slider_image" accept="image/*" >
+            </div>
+            <div class="col-4"> <img src="/uploads/<%-old_data.slider_image%>" alt="" width="100px" height="100px"></div>
+            <div class="mb-3">
+                <label for="button_text" class="form-label">Button Text</label>
+                <input type="text" class="form-control p-2" id="button_text" value="<%-old_data.button_text%>" name="button_text" maxlength="50" required>
+            </div>
+            <div class="mb-3">
+                <label for="button_link" class="form-label">Button Link</label>
+                <input type="url" class="form-control p-2" id="button_link" value="<%-old_data.button_link%>" name="button_link" maxlength="255" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+<%-include("footer.ejs")%>

@@ -1,0 +1,27 @@
+<h1>kiran</h1>
+
+<%- include("navbar.ejs")%>
+<div class="container mt-5">
+    <h2 class="pb-4">Manage Service</h2>
+    
+    <form action="/admin/edite_from" method="POST" enctype="multipart/form-data" class="p-4 border rounded bg-light">
+        <div class="mb-3">
+            <input type="hidden" name="updets" value="<%-old_data.service_id%>">
+            <label for="service_title" class="form-label">Service Title</label>
+            <input type="text" class="form-control p-2"  id="service_title" name="service_title" value="<%-old_data.service_title%>"maxlength="255" required>
+        </div>
+        <div class="mb-3">
+            <label for="service_details" class="form-label">Service Details</label>
+            <textarea class="form-control p-2" id="service_details" name="service_details" rows="3" required><%-old_data.service_details%></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="service_image" class="form-label">Service Image</label>
+            <input class="form-control p-2" type="file" id="service_image" name="service_image" accept="image/*" >
+        </div>
+        <div class="mb-3">
+            <img src="/uploads/<%-old_data.service_image%>" width="100px" height="100px">
+        </div>
+        <button type="submit" class="btn btn-primary " style="margin-left: 50%;">Submit</button>
+    </form>
+</div>
+<%- include("footer.ejs")%>

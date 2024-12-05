@@ -1,0 +1,32 @@
+<%- include("navbar.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Images Form</title>
+    <!-- Bootstrap CSS -->
+    
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Upload Instagram Image</h2>
+  
+    <form action="/admin/insta_image_uploads" method="POST" enctype="multipart/form-data">
+        <div class="mb-2">
+            <input type="hidden" name="instagram_id" value="<%-old_data.insta_img_id%>">
+            <label for="insta_image" class="form-label">Instagram Image</label>
+            <div class="mb-1">
+                <img src="/uploads/<%-old_data.insta_image%>" width="100px">
+            </div>
+            <input type="file" class="form-control" id="insta_image" name="insta_image" accept="image/*" >
+        </div>
+       
+        <div class="mb-3">
+            <label for="insta_link" class="form-label">Instagram Post Link</label>
+            <input type="url" value="<%-old_data.insta_link%>" class="form-control" id="insta_link" name="insta_link" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+</div>
+<%- include("footer.ejs") %>

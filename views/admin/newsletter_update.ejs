@@ -1,0 +1,19 @@
+<%- include("navbar.ejs") %>
+<body>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="/admin/newsletter_form_update" method="post">
+                    <div class="mb-3">
+                        <input type="hidden" name="newsletter_form_id" value="<%-old_data.newsletter_id%>">
+                        <label for="customer_email" class="form-label">Email address</label>
+                        <input type="email" value="<%-old_data.customer_email%>" class="form-control" id="customer_email" name="customer_email" placeholder="Enter your email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div></body>
+
+    
+<%- include("footer.ejs") %>

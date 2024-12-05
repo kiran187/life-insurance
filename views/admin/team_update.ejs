@@ -1,0 +1,94 @@
+<%- include("navbar.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Members Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Team Member Form</h2>
+        <form action="/admin/update_team_member" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" name="team_member_id" value="<%-old_data.team_member_id%>">
+                <label for="team_image">Team Image:</label>
+                <img src="/uploads/<%-old_data.team_image%>"width="80px" style="margin-left: 20px; height: 80px;"><br><br>
+                <input type="file" class="form-control" id="team_image"  name="team_image" >
+            </div>
+            
+            <div class="form-group">
+                <label for="team_name">Team Name:</label>
+                <input type="text" class="form-control" id="team_name" name="team_name" value="<%-old_data.team_name%>" placeholder="Enter team member's name" required>
+            </div>
+            <div class="form-group">
+                <label for="team_position">Team Position:</label>
+                <input type="text" class="form-control" id="team_position" name="team_position" value="<%-old_data.team_position%>"  placeholder="Enter team member's position" required>
+            </div>
+            <div class="form-group">
+                <label for="team_fb_link">Facebook Link:</label>
+                <input type="url" class="form-control" id="team_fb_link" name="team_fb_link" value="<%-old_data.team_fb_link%>"  placeholder="Enter Facebook profile link">
+            </div>
+            <div class="form-group">
+                <label for="team_insta_link">Instagram Link:</label>
+                <input type="url" class="form-control" id="team_insta_link" name="team_insta_link" value="<%-old_data.team_insta_link%>" placeholder="Enter Instagram profile link">
+            </div>
+            <div class="form-group">
+                <label for="team_twitter_link">Twitter Link:</label>
+                <input type="url" class="form-control" id="team_twitter_link" name="team_twitter_link" value="<%-old_data.team_twitter_link%>" placeholder="Enter Twitter profile link">
+            </div>
+            <div class="form-group">
+                <label for="team_linkedin_link">LinkedIn Link:</label>
+                <input type="url" class="form-control" id="team_linkedin_link" name="team_linkedin_link" value="<%-old_data.team_linkedin_link%>" placeholder="Enter LinkedIn profile link">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+<%- include("footer.ejs") %>
+
+
+
+
+
+faq
+	-> faq_question
+	-> faq_answer
+
+faq_image
+	-> faq_img
+
+
+
+
+
+testimonial
+	-> customer_image
+	-> customer_name
+	-> customer_position
+	-> customer_review_rating 
+	-> customer_review_details
+
+instagram_images
+	-> insta_image
+	-> insta_link
+
+newsletter
+	-> customer_email
+
+    //multiple
+    testimonial
+	-> customer_image
+	-> customer_name
+	-> customer_position
+	-> customer_review_rating 
+	-> customer_review_details
+
+-->

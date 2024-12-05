@@ -1,0 +1,27 @@
+<%- include("navbar.ejs") %>
+<div class="container mt-5">
+    <h2>Contact Us Form</h2>
+    <form action="/admin/submit-contact" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="hidden" value="<%-old_data.contact_id%>">
+                <div class="form-group">
+                    <label for="contact_img">Contact Image:</label>
+                    <input type="file" class="form-control" id="contact_img" name="contact_img" required>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <img src="/uploads/<%-old_data.contact_img%>" width="100px">
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="contact_map_link">Contact Map Link:</label>
+                    <input type="url" class="form-control" id="contact_map_link" name="contact_map_link" value="<%-old_data.contact_map_link%>" placeholder="Enter Google Maps link" required>
+                </div>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+    </form>
+</div>
+<%- include("footer.ejs") %>

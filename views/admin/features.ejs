@@ -1,0 +1,81 @@
+<%-include("navbar.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+</header>
+<body>
+<div class="container mt-5">
+    <form action="/admin/feature" method="post" enctype="multipart/form-data">
+        <!-- Feature Icon Image -->
+        <div class="mb-3">
+            <label for="featureIconImage" class="form-label">Feature Icon Image</label>
+            <input type="file" class="form-control" id="featureIconImage" name="feature_icon_image">
+        </div>
+
+        <!-- Feature Label -->
+        <div class="mb-3">
+            <label for="featureLabel" class="form-label">Feature Label</label>
+            <input type="text" class="form-control" id="featureLabel" name="feature_label" placeholder="Enter feature label">
+        </div>
+
+        <!-- Feature Details -->
+        <div class="mb-3">
+            <label for="featureDetails" class="form-label">Feature Details</label>
+            <textarea class="form-control" id="featureDetails" name="feature_details" rows="4" placeholder="Enter feature details"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+<table class="table table-bordered mt-4">
+    <thead>
+      <tr>
+        <th>action</th>
+        <th scope="col">sr.no</th>
+<th scope="col"> feature_icon_image</th>
+	<th scope="col"> Feature Label</th>
+	<th scope="col"> Feature Details</th>
+	
+        
+      </tr>
+    </thead>
+    <tbody>
+<% sr=1; for(i of feature_data) { %>
+    <tr>
+        <td>
+            <a href="/admin/feature_delete/<%-i.feature_id%>" onclick="return confirmDelete()">
+                <button class="text-danger">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </a>
+            <a href="/admin/feature_edite/<%-i.feature_id%>">
+                <button class="text-warning">
+                    <i class="fa-solid fa-pencil"></i>
+                </button>
+            </a>
+        
+        </td>
+        <td><%-sr++%></td>
+        <td><img src="/uploads/<%-i.feature_icon_image%>" alt="" width="100px"></td>
+        <td><%-i.feature_label%></td>
+        <td><%-i.feature_details%></td>
+    </tr>
+    
+<% } %>
+
+    </tbody>
+</table>
+
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this item?');
+    }
+</script>
+
+<%-include("footer.ejs") %>
