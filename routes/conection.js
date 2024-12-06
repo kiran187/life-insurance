@@ -4,7 +4,7 @@ var util = require("util");
 var conn = mysql.createConnection({
     host: "bdq7ljmg1sa8atf51kpi-mysql.services.clever-cloud.com",
     user: "ue4tkz6bg2rqygtw",
-    password: "ue4tkz6bg2rqygtw",
+    password: "YfZaJUh1NgbKc4Ywyquo",
     database:"bdq7ljmg1sa8atf51kpi"
 });
 
